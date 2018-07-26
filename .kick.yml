@@ -1,0 +1,21 @@
+# Kickstart container config file - see https://gitub.com/c7lab/kickstart
+# Run ./kickstart.sh to start a development-container for this project
+version: 1
+from: "infracamp/kickstart-flavor-gaia"
+
+apache_fallback_resource: "/index.php"
+http_port: 8000
+
+
+config_file:
+  template: "config.php.dist"
+  target: "config.php"
+
+
+command:
+  build:
+    - "echo \"www-data   ALL = (ALL) NOPASSWD: /usr/bin/docker\" | sudo tee --append /etc/sudoers"
+    - "sudo apt-get -y install haproxy"
+    - "composer update"
+    - "sudo chmod 777 /srv"
+

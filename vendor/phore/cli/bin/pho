@@ -1,0 +1,12 @@
+#!/usr/bin/php
+<?php
+
+/**
+ * Phore Command line tool
+ *
+ * Expects phore-cli.json in current working dir
+ */
+
+ require getcwd() . "/vendor/autoload.php";
+
+

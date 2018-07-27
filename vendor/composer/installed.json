@@ -1,0 +1,565 @@
+[
+    {
+        "name": "phore/cli",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/cli.git",
+            "reference": "286b73e5e58d9abff8492caa459c6047f230842e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/cli/zipball/286b73e5e58d9abff8492caa459c6047f230842e",
+            "reference": "286b73e5e58d9abff8492caa459c6047f230842e",
+            "shasum": ""
+        },
+        "require": {
+            "phore/di-base": "^2.0",
+            "php": ">=7.0"
+        },
+        "time": "2018-05-30T13:57:30+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Phore\\Cli\\": "/src/Cli/"
+            },
+            "exclude-from-classmap": [
+                "/test/"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "matthes@leuffen.de"
+            }
+        ],
+        "description": "phore cli interface",
+        "homepage": "https://getgismo.com",
+        "keywords": [
+            "Phore",
+            "framework"
+        ]
+    },
+    {
+        "name": "phore/dba",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-dba.git",
+            "reference": "7838596cdcbbf5848348f4cc5bc670681bbe5c62"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-dba/zipball/7838596cdcbbf5848348f4cc5bc670681bbe5c62",
+            "reference": "7838596cdcbbf5848348f4cc5bc670681bbe5c62",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcre": "*",
+            "phore/cli": "^1.0",
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "nette/tester": "^2.0"
+        },
+        "time": "2018-07-26T09:24:44+00:00",
+        "bin": [
+            "bin/ottodb"
+        ],
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\Dba\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "marius",
+                "email": "marius.vogel@continue.de"
+            },
+            {
+                "name": "Matthias Leuffen",
+                "email": "m@tth.es"
+            }
+        ],
+        "description": "Database abstraction layer and ORM"
+    },
+    {
+        "name": "phore/dba-migrations",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-dba-migrations.git",
+            "reference": "727a3b16a9a2626114910d4585335bf850849994"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-dba-migrations/zipball/727a3b16a9a2626114910d4585335bf850849994",
+            "reference": "727a3b16a9a2626114910d4585335bf850849994",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcre": "*",
+            "phore/dba": "dev-master",
+            "php": ">=7.0"
+        },
+        "require-dev": {
+            "nette/tester": "^2.0"
+        },
+        "time": "2018-07-26T11:45:45+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\DbaMigrations\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "m@tth.es"
+            }
+        ],
+        "description": "database migrations for phore-dba"
+    },
+    {
+        "name": "phore/di-base",
+        "version": "v2.1.1",
+        "version_normalized": "2.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-di-base.git",
+            "reference": "fef0410bef4d3db8a4c586e85f3c6d6bec830a1b"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-di-base/zipball/fef0410bef4d3db8a4c586e85f3c6d6bec830a1b",
+            "reference": "fef0410bef4d3db8a4c586e85f3c6d6bec830a1b",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=7.0",
+            "psr/container": "^1.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "*"
+        },
+        "time": "2018-07-10T05:48:13+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.1-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Phore\\Di\\": "src/Di"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "matthes@leuffen.de"
+            }
+        ],
+        "description": "Dependency Injection Base Classes and Interfaces",
+        "homepage": "https://getgismo.com",
+        "keywords": [
+            "Phore",
+            "dependency injection",
+            "di"
+        ]
+    },
+    {
+        "name": "phore/filesystem",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-filesystem.git",
+            "reference": "ce5688780186c139be3b1f4e0ee0a678ad5d0ad1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/ce5688780186c139be3b1f4e0ee0a678ad5d0ad1",
+            "reference": "ce5688780186c139be3b1f4e0ee0a678ad5d0ad1",
+            "shasum": ""
+        },
+        "require": {
+            "ext-json": "*",
+            "ext-yaml": "*",
+            "php": ">7.1"
+        },
+        "require-dev": {
+            "nette/tester": "*"
+        },
+        "time": "2018-07-17T17:11:52+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\FileSystem\\": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "leuffen@continue.de"
+            }
+        ]
+    },
+    {
+        "name": "phore/html",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-html.git",
+            "reference": "2c2c20893f3d63c226892222eec3ced9bec95a97"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-html/zipball/2c2c20893f3d63c226892222eec3ced9bec95a97",
+            "reference": "2c2c20893f3d63c226892222eec3ced9bec95a97",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcre": "*",
+            "php": ">7.0"
+        },
+        "require-dev": {
+            "erusev/parsedown-extra": "^0.7.1",
+            "psr/http-message": "^1.0"
+        },
+        "suggest": {
+            "erusev/parsedown-extra": "required to use markdown() methods"
+        },
+        "time": "2018-07-13T13:46:27+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\Html\\": "src/"
+            },
+            "files": [
+                "src/functions.inc.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "leuffen@continue.de"
+            }
+        ]
+    },
+    {
+        "name": "phore/micro-app",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-micro-app.git",
+            "reference": "0c22c6a869af076d402c4fa481c619766410b7e3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/0c22c6a869af076d402c4fa481c619766410b7e3",
+            "reference": "0c22c6a869af076d402c4fa481c619766410b7e3",
+            "shasum": ""
+        },
+        "require": {
+            "phore/di-base": "^2.1",
+            "php": ">7.1"
+        },
+        "require-dev": {
+            "continue/theme": "dev-master"
+        },
+        "time": "2018-07-26T13:16:33+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\MicroApp\\": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "leuffen@continue.de"
+            }
+        ]
+    },
+    {
+        "name": "phore/system",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-system.git",
+            "reference": "d68117299e16e78378e49647aba89ac0ae626d41"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-system/zipball/d68117299e16e78378e49647aba89ac0ae626d41",
+            "reference": "d68117299e16e78378e49647aba89ac0ae626d41",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">7.1"
+        },
+        "time": "2018-07-18T14:11:42+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\System\\": "src/"
+            },
+            "files": [
+                "src/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "leuffen@continue.de"
+            }
+        ]
+    },
+    {
+        "name": "phore/theme-bootstrap",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-theme-bootstrap.git",
+            "reference": "cf86fe901155b66bbeeba5a895ec4ed4d734b3b6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-theme-bootstrap/zipball/cf86fe901155b66bbeeba5a895ec4ed4d734b3b6",
+            "reference": "cf86fe901155b66bbeeba5a895ec4ed4d734b3b6",
+            "shasum": ""
+        },
+        "require": {
+            "phore/html": "dev-master",
+            "php": ">7.0"
+        },
+        "require-dev": {
+            "phore/micro-app": "dev-master"
+        },
+        "time": "2018-07-25T17:02:46+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\Theme\\Bootstrap\\": "src/"
+            },
+            "files": []
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "leuffen@continue.de"
+            }
+        ]
+    },
+    {
+        "name": "phore/theme-coreui",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phore/phore-theme-coreui.git",
+            "reference": "743ef4ac44cbbe3f93bffcbd0feb61a8d8e78c0a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phore/phore-theme-coreui/zipball/743ef4ac44cbbe3f93bffcbd0feb61a8d8e78c0a",
+            "reference": "743ef4ac44cbbe3f93bffcbd0feb61a8d8e78c0a",
+            "shasum": ""
+        },
+        "require": {
+            "phore/html": "dev-master",
+            "phore/theme-bootstrap": "dev-master",
+            "php": ">7.0"
+        },
+        "require-dev": {
+            "phore/micro-app": "dev-master"
+        },
+        "time": "2018-07-25T17:21:45+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Phore\\Theme\\CoreUI\\": "src/"
+            },
+            "files": []
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "leuffen@continue.de"
+            }
+        ]
+    },
+    {
+        "name": "psr/container",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/container.git",
+            "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
+            "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-06-28T15:35:32+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Container\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common Container Interface (PHP FIG PSR-11)",
+        "homepage": "https://github.com/php-fig/container",
+        "keywords": [
+            "PSR-11",
+            "container",
+            "container-interface",
+            "container-interop",
+            "psr"
+        ]
+    },
+    {
+        "name": "text/template",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dermatthes/text-template.git",
+            "reference": "7331124333616caf72bc9ccd1033e45a1f29a695"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dermatthes/text-template/zipball/7331124333616caf72bc9ccd1033e45a1f29a695",
+            "reference": "7331124333616caf72bc9ccd1033e45a1f29a695",
+            "shasum": ""
+        },
+        "require": {
+            "ext-pcre": "*",
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "nette/tester": "*",
+            "phpunit/phpcov": "^2.0",
+            "satooshi/php-coveralls": "*"
+        },
+        "time": "2018-07-25T12:59:58+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Leuffen\\TextTemplate\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matthias Leuffen",
+                "email": "matthes@leuffen.de"
+            }
+        ],
+        "description": "Simple and secure string-template-engine (Twig-like syntax) with nested if/elseif/else, loops, filters. Simple OOP api: Just one class doing the job (2-lines of code). Fast and secure: No code-generation, no eval'ed() code. Extensible by callbacks. Fully tested. Rich examples included.",
+        "homepage": "http://text-template.pub.leuffen.de",
+        "keywords": [
+            "filter",
+            "for",
+            "if",
+            "loop",
+            "mail",
+            "render",
+            "smarty",
+            "template",
+            "text",
+            "twig"
+        ]
+    }
+]

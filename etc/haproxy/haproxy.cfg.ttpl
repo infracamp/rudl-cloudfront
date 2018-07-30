@@ -51,51 +51,44 @@ listen stats
 
 
 
-{section > aclhost}
+{print > aclhost}
+    # Letsencrypt
+    acl has_letsencrypt_acme_signature path_beg /.well-known/acme-challenge/
+    use_backend int_letsencrypt if has_letsencrypt_acme_signature
 
-{/section}
+    http-request set-header X-Orig-Src %[src]
+
+    {for service in services}
+    {for domain in service.domain}
+    {print > acl_service_tag}for_service_{=service.serviceName|inflect:tag}{/print}
+    acl {=acl_service_tag} hdr(host) -i {=domain}
+    {/for}
+    use_backend 
+    {/for}
+    default_backend {{DEFAULT_SERVICE}}
+
+{/print}
 
 
 frontend http-in
     bind *:80
     timeout http-request 5s
-
-    ## Letsencrypt finden
-    acl has_letsencrypt_acme_signature path_beg /.well-known/acme-challenge/
-    use_backend int_letsencrypt if has_letsencrypt_acme_signature
-
     http-request set-header X-SSL no
-    http-request set-header X-Orig-Src %[src]
-
-    ## Domain acl's
-    ## Achtung: spezifischere Domains müssen weiter oben stehen. (First match wins)
-
-{= aclhost}
-
-    default_backend {{DEFAULT_SERVICE}}
+    {=aclhost}
 
 frontend https-in
     bind *:443 ssl crt /etc/haproxy/ssl/default.pem crt /etc/haproxy/ssl/ no-sslv3
     timeout http-request 5s
 
-    acl has_letsencrypt_acme_signature path_beg /.well-known/acme-challenge/
-    use_backend int_letsencrypt if has_letsencrypt_acme_signature
-
     option tcplog
     mode http
-
     tcp-request inspect-delay 5s
     tcp-request content accept if { req_ssl_hello_type 1 }
 
     http-request set-header X-SSL yes
-    http-request set-header X-Orig-Src %[src]
+    {=aclhost}
 
-    ## List virtual Domains here:
-    ## Not used (only one backend). #acl vn_is_example_com req_ssl_sni -i example.com
 
-{=aclhost}
-
-    default_backend {{DEFAULT_SERVICE}}
 
 #############################
 ## Default Backends

@@ -1,0 +1,21 @@
+{
+  "services": [
+    {
+      "serviceName": "abs",
+      "domains": [
+        "domain1.de",
+        "domain2.de",
+        "www.domain2.de"
+      ]
+    },
+    {
+      "serviceName": "abcd",
+      "domains": [
+        "domain1.de",
+        "domain2.de",
+        "www.domain2.de"
+      ]
+    }
+  ],
+  "default_service": "abcd"
+}

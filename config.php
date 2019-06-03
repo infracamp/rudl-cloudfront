@@ -11,7 +11,8 @@ define ("DEV_MODE", (bool)"1");
 if (DEV_MODE === true) {
     define ("CONF_MANAGER_HOSTNAME", "localhost:4000");
 } else {
-    define ("CONF_MANAGER_HOSTNAME", "%CONF_MANAGER_HOSTNAME%");
+    define ("CONF_MANAGER_HOSTNAME", "localhost:4000");
+    # define ("CONF_MANAGER_HOSTNAME", "%CONF_MANAGER_HOSTNAME%");
 }
 
 define ("CONF_SSL_CERT_STORE", "/mnt/ssl");

@@ -1,7 +1,7 @@
 FROM infracamp/kickstart-flavor-gaia:testing
 
 ENV DEV_CONTAINER_NAME="rudl-cloudfront"
-ENV CONF_MANAGER_HOSTNAME="rudl_principal"
+ENV CONF_MANAGER_HOSTNAME="rudl-principal"
 
 ADD / /opt
 RUN ["bash", "-c",  "chown -R user /opt"]

@@ -57,12 +57,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-cloudtool.git",
-                "reference": "db5d0f1ea3deffc84e209ba858d4e64ef137c7c5"
+                "reference": "dd15a93902822a86abb94504f0aaebbc05894252"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-cloudtool/zipball/db5d0f1ea3deffc84e209ba858d4e64ef137c7c5",
-                "reference": "db5d0f1ea3deffc84e209ba858d4e64ef137c7c5",
+                "url": "https://api.github.com/repos/phore/phore-cloudtool/zipball/dd15a93902822a86abb94504f0aaebbc05894252",
+                "reference": "dd15a93902822a86abb94504f0aaebbc05894252",
                 "shasum": ""
             },
             "require": {
@@ -99,7 +99,7 @@
                 "template",
                 "text"
             ],
-            "time": "2019-05-24T00:33:16+00:00"
+            "time": "2019-06-03T17:02:51+00:00"
         },
         {
             "name": "phore/core",

@@ -20,9 +20,8 @@ $targetConfig = [
 ];
 
 $cloudConfig = phore_http_request(CONF_MANAGER_GET_CONFIG_URL)->send()->getBodyJson();
-print_r ($cloudConfig);
 $vhosts = phore_pluck("vhosts", $cloudConfig);
-print_r ($vhosts);
+
 
 $secretBox = new PhoreSecretBoxSync(phore_file(CONF_MANAGER_CERT_SECRET)->get_contents());
 $certStore = phore_dir(CONF_SSL_CERT_STORE)->assertDirectory(true);

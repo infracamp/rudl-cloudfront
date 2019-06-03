@@ -1,8 +1,0 @@
-HTTP/1.1 429 Too Many Requests
-Cache-Control: no-cache
-Connection: close
-Content-Type: text/html
-Retry-After: 600
-
-<h1>Blacklisted: Too Many Requests From Your IP-Address (CS037-abuse).</h1>
-<p>Your IP was detected as abuser and is blocked for several hours.</p>

@@ -7,16 +7,15 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Rudl\\' => array($baseDir . '/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
     'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
-    'Phore\\Theme\\CoreUI\\' => array($vendorDir . '/phore/theme-coreui/src'),
-    'Phore\\Theme\\Bootstrap\\' => array($vendorDir . '/phore/theme-bootstrap/src'),
     'Phore\\System\\' => array($vendorDir . '/phore/system/src'),
     'Phore\\MicroApp\\' => array($vendorDir . '/phore/micro-app/src'),
-    'Phore\\Html\\' => array($vendorDir . '/phore/html/src'),
+    'Phore\\HttpClient\\' => array($vendorDir . '/phore/http-client/src'),
     'Phore\\FileSystem\\' => array($vendorDir . '/phore/filesystem/src'),
     'Phore\\Di\\' => array($vendorDir . '/phore/di-base/src/Di'),
-    'Phore\\Dba\\' => array($vendorDir . '/phore/dba/src'),
-    'Phore\\DbaMigrations\\' => array($vendorDir . '/phore/dba-migrations/src'),
+    'Phore\\Core\\' => array($vendorDir . '/phore/core/src'),
+    'Phore\\CloudTool\\' => array($vendorDir . '/phore/cloudtool/src'),
     'Phore\\Cli\\' => array($vendorDir . '/phore/cli/src/Cli'),
     'Leuffen\\TextTemplate\\' => array($vendorDir . '/text/template/src'),
 );

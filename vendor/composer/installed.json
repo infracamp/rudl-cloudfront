@@ -1,26 +1,26 @@
 [
     {
         "name": "phore/cli",
-        "version": "v1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/phore/cli.git",
-            "reference": "286b73e5e58d9abff8492caa459c6047f230842e"
+            "reference": "53d9ae97398c7356c85740543bb52459a0337153"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phore/cli/zipball/286b73e5e58d9abff8492caa459c6047f230842e",
-            "reference": "286b73e5e58d9abff8492caa459c6047f230842e",
+            "url": "https://api.github.com/repos/phore/cli/zipball/53d9ae97398c7356c85740543bb52459a0337153",
+            "reference": "53d9ae97398c7356c85740543bb52459a0337153",
             "shasum": ""
         },
         "require": {
-            "phore/di-base": "^2.0",
+            "phore/di-base": "2.1.1",
             "php": ">=7.0"
         },
-        "time": "2018-05-30T13:57:30+00:00",
+        "time": "2019-05-03T14:49:17+00:00",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "autoload": {
             "psr-4": {
                 "Phore\\Cli\\": "/src/Cli/"
@@ -47,37 +47,37 @@
         ]
     },
     {
-        "name": "phore/dba",
+        "name": "phore/cloudtool",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/phore/phore-dba.git",
-            "reference": "7838596cdcbbf5848348f4cc5bc670681bbe5c62"
+            "url": "https://github.com/phore/phore-cloudtool.git",
+            "reference": "db5d0f1ea3deffc84e209ba858d4e64ef137c7c5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-dba/zipball/7838596cdcbbf5848348f4cc5bc670681bbe5c62",
-            "reference": "7838596cdcbbf5848348f4cc5bc670681bbe5c62",
+            "url": "https://api.github.com/repos/phore/phore-cloudtool/zipball/db5d0f1ea3deffc84e209ba858d4e64ef137c7c5",
+            "reference": "db5d0f1ea3deffc84e209ba858d4e64ef137c7c5",
             "shasum": ""
         },
         "require": {
             "ext-pcre": "*",
-            "phore/cli": "^1.0",
-            "php": ">=7.0"
+            "phore/cli": "dev-master",
+            "phore/filesystem": "dev-master",
+            "phore/system": "dev-master",
+            "php": ">=7.2",
+            "text/template": "dev-master"
         },
-        "require-dev": {
-            "nette/tester": "^2.0"
-        },
-        "time": "2018-07-26T09:24:44+00:00",
+        "time": "2019-05-24T00:33:16+00:00",
         "bin": [
-            "bin/ottodb"
+            "bin/cloudtool"
         ],
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "Phore\\Dba\\": "src/"
+                "Phore\\CloudTool\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -86,46 +86,57 @@
         ],
         "authors": [
             {
-                "name": "marius",
-                "email": "marius.vogel@continue.de"
-            },
-            {
                 "name": "Matthias Leuffen",
-                "email": "m@tth.es"
+                "email": "matthes@leuffen.de"
             }
         ],
-        "description": "Database abstraction layer and ORM"
+        "description": "Script to update config files using template",
+        "homepage": "http://infracamp.org/phore",
+        "keywords": [
+            "config",
+            "template",
+            "text"
+        ]
     },
     {
-        "name": "phore/dba-migrations",
+        "name": "phore/core",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/phore/phore-dba-migrations.git",
-            "reference": "727a3b16a9a2626114910d4585335bf850849994"
+            "url": "https://github.com/phore/phore-core.git",
+            "reference": "a46fc77691f10aa739208c5e7297052418388e76"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-dba-migrations/zipball/727a3b16a9a2626114910d4585335bf850849994",
-            "reference": "727a3b16a9a2626114910d4585335bf850849994",
+            "url": "https://api.github.com/repos/phore/phore-core/zipball/a46fc77691f10aa739208c5e7297052418388e76",
+            "reference": "a46fc77691f10aa739208c5e7297052418388e76",
             "shasum": ""
         },
         "require": {
-            "ext-pcre": "*",
-            "phore/dba": "dev-master",
-            "php": ">=7.0"
+            "php": ">=7.1"
         },
         "require-dev": {
-            "nette/tester": "^2.0"
+            "ext-json": "*",
+            "ext-sodium": "*",
+            "ext-yaml": "*",
+            "phpunit/phpunit": "*"
         },
-        "time": "2018-07-26T11:45:45+00:00",
+        "suggest": {
+            "ext-json": "Json encoding parsing",
+            "ext-sodium": "Encryption functions",
+            "ext-yaml": "Yaml encoding parsing"
+        },
+        "time": "2019-06-03T09:03:08+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "Phore\\DbaMigrations\\": "src/"
-            }
+                "Phore\\Core\\": "src/"
+            },
+            "files": [
+                "src/functions.inc.php"
+            ]
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [
@@ -137,7 +148,8 @@
                 "email": "m@tth.es"
             }
         ],
-        "description": "database migrations for phore-dba"
+        "description": "Phore core library",
+        "homepage": "https://infracamp.org/phore/"
     },
     {
         "name": "phore/di-base",
@@ -199,23 +211,25 @@
         "source": {
             "type": "git",
             "url": "https://github.com/phore/phore-filesystem.git",
-            "reference": "ce5688780186c139be3b1f4e0ee0a678ad5d0ad1"
+            "reference": "986e255f774262fd9f5a2df0224b439e75eea7a4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/ce5688780186c139be3b1f4e0ee0a678ad5d0ad1",
-            "reference": "ce5688780186c139be3b1f4e0ee0a678ad5d0ad1",
+            "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/986e255f774262fd9f5a2df0224b439e75eea7a4",
+            "reference": "986e255f774262fd9f5a2df0224b439e75eea7a4",
             "shasum": ""
         },
         "require": {
             "ext-json": "*",
             "ext-yaml": "*",
-            "php": ">7.1"
+            "phore/core": "dev-master",
+            "php": ">7.1",
+            "psr/http-message": "^1.0@dev"
         },
         "require-dev": {
-            "nette/tester": "*"
+            "phpunit/phpunit": "^8.0@dev"
         },
-        "time": "2018-07-17T17:11:52+00:00",
+        "time": "2019-05-31T12:14:05+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -235,43 +249,48 @@
                 "name": "Matthias Leuffen",
                 "email": "leuffen@continue.de"
             }
-        ]
+        ],
+        "description": "Acces files layer"
     },
     {
-        "name": "phore/html",
+        "name": "phore/http-client",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/phore/phore-html.git",
-            "reference": "2c2c20893f3d63c226892222eec3ced9bec95a97"
+            "url": "https://github.com/phore/phore-http-client.git",
+            "reference": "86e5f1c3c945a4ae5836afb15192e471aa11bfce"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-html/zipball/2c2c20893f3d63c226892222eec3ced9bec95a97",
-            "reference": "2c2c20893f3d63c226892222eec3ced9bec95a97",
+            "url": "https://api.github.com/repos/phore/phore-http-client/zipball/86e5f1c3c945a4ae5836afb15192e471aa11bfce",
+            "reference": "86e5f1c3c945a4ae5836afb15192e471aa11bfce",
             "shasum": ""
         },
         "require": {
-            "ext-pcre": "*",
-            "php": ">7.0"
+            "ext-curl": "*",
+            "ext-http": "*",
+            "ext-json": "*",
+            "phore/core": "dev-master",
+            "php": ">=7.1"
         },
         "require-dev": {
-            "erusev/parsedown-extra": "^0.7.1",
-            "psr/http-message": "^1.0"
+            "phore/cache": "*",
+            "phore/objectstore": "*",
+            "phpunit/phpunit": "*"
         },
         "suggest": {
-            "erusev/parsedown-extra": "required to use markdown() methods"
+            "phore/cache": "Use request caching"
         },
-        "time": "2018-07-13T13:46:27+00:00",
+        "time": "2019-05-24T20:41:44+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
             "psr-4": {
-                "Phore\\Html\\": "src/"
+                "Phore\\HttpClient\\": "src/"
             },
             "files": [
-                "src/functions.inc.php"
+                "src/functions.php"
             ]
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -281,8 +300,14 @@
         "authors": [
             {
                 "name": "Matthias Leuffen",
-                "email": "leuffen@continue.de"
+                "email": "m@tth.es"
             }
+        ],
+        "description": "Http client library for fast api access",
+        "homepage": "https://infracamp.org/phore/",
+        "keywords": [
+            "Keyword1",
+            "Keyword2"
         ]
     },
     {
@@ -292,22 +317,27 @@
         "source": {
             "type": "git",
             "url": "https://github.com/phore/phore-micro-app.git",
-            "reference": "0c22c6a869af076d402c4fa481c619766410b7e3"
+            "reference": "855ca604ea90f4724819b2dffbee55c78ed200fa"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/0c22c6a869af076d402c4fa481c619766410b7e3",
-            "reference": "0c22c6a869af076d402c4fa481c619766410b7e3",
+            "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/855ca604ea90f4724819b2dffbee55c78ed200fa",
+            "reference": "855ca604ea90f4724819b2dffbee55c78ed200fa",
             "shasum": ""
         },
         "require": {
-            "phore/di-base": "^2.1",
+            "ext-json": "*",
+            "ext-yaml": "*",
+            "phore/core": "dev-master",
+            "phore/di-base": "2.1.1",
             "php": ">7.1"
         },
         "require-dev": {
-            "continue/theme": "dev-master"
+            "phore/http-client": "*",
+            "phore/theme-coreui": "dev-master",
+            "phpunit/phpunit": "*"
         },
-        "time": "2018-07-26T13:16:33+00:00",
+        "time": "2019-05-29T17:16:47+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -325,9 +355,11 @@
         "authors": [
             {
                 "name": "Matthias Leuffen",
-                "email": "leuffen@continue.de"
+                "email": "m@tth.es"
             }
-        ]
+        ],
+        "description": "Micro framework for rest api webservices",
+        "homepage": "https://infracamp.org/phore/"
     },
     {
         "name": "phore/system",
@@ -336,18 +368,22 @@
         "source": {
             "type": "git",
             "url": "https://github.com/phore/phore-system.git",
-            "reference": "d68117299e16e78378e49647aba89ac0ae626d41"
+            "reference": "1c9dfee76830b3303b4f0ac4e4634ed36bf45c63"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-system/zipball/d68117299e16e78378e49647aba89ac0ae626d41",
-            "reference": "d68117299e16e78378e49647aba89ac0ae626d41",
+            "url": "https://api.github.com/repos/phore/phore-system/zipball/1c9dfee76830b3303b4f0ac4e4634ed36bf45c63",
+            "reference": "1c9dfee76830b3303b4f0ac4e4634ed36bf45c63",
             "shasum": ""
         },
         "require": {
+            "phore/core": "*",
             "php": ">7.1"
         },
-        "time": "2018-07-18T14:11:42+00:00",
+        "require-dev": {
+            "phpunit/phpunit": "^8.1"
+        },
+        "time": "2019-06-03T09:04:15+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {
@@ -367,92 +403,8 @@
                 "name": "Matthias Leuffen",
                 "email": "leuffen@continue.de"
             }
-        ]
-    },
-    {
-        "name": "phore/theme-bootstrap",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phore/phore-theme-bootstrap.git",
-            "reference": "cf86fe901155b66bbeeba5a895ec4ed4d734b3b6"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-theme-bootstrap/zipball/cf86fe901155b66bbeeba5a895ec4ed4d734b3b6",
-            "reference": "cf86fe901155b66bbeeba5a895ec4ed4d734b3b6",
-            "shasum": ""
-        },
-        "require": {
-            "phore/html": "dev-master",
-            "php": ">7.0"
-        },
-        "require-dev": {
-            "phore/micro-app": "dev-master"
-        },
-        "time": "2018-07-25T17:02:46+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Phore\\Theme\\Bootstrap\\": "src/"
-            },
-            "files": []
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
         ],
-        "authors": [
-            {
-                "name": "Matthias Leuffen",
-                "email": "leuffen@continue.de"
-            }
-        ]
-    },
-    {
-        "name": "phore/theme-coreui",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/phore/phore-theme-coreui.git",
-            "reference": "743ef4ac44cbbe3f93bffcbd0feb61a8d8e78c0a"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/phore/phore-theme-coreui/zipball/743ef4ac44cbbe3f93bffcbd0feb61a8d8e78c0a",
-            "reference": "743ef4ac44cbbe3f93bffcbd0feb61a8d8e78c0a",
-            "shasum": ""
-        },
-        "require": {
-            "phore/html": "dev-master",
-            "phore/theme-bootstrap": "dev-master",
-            "php": ">7.0"
-        },
-        "require-dev": {
-            "phore/micro-app": "dev-master"
-        },
-        "time": "2018-07-25T17:21:45+00:00",
-        "type": "library",
-        "installation-source": "source",
-        "autoload": {
-            "psr-4": {
-                "Phore\\Theme\\CoreUI\\": "src/"
-            },
-            "files": []
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Matthias Leuffen",
-                "email": "leuffen@continue.de"
-            }
-        ]
+        "description": "Execute shell commands"
     },
     {
         "name": "psr/container",
@@ -461,18 +413,18 @@
         "source": {
             "type": "git",
             "url": "https://github.com/php-fig/container.git",
-            "reference": "2cc4a01788191489dc7459446ba832fa79a216a7"
+            "reference": "014d250daebff39eba15ba990eeb2a140798e77c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/php-fig/container/zipball/2cc4a01788191489dc7459446ba832fa79a216a7",
-            "reference": "2cc4a01788191489dc7459446ba832fa79a216a7",
+            "url": "https://api.github.com/repos/php-fig/container/zipball/014d250daebff39eba15ba990eeb2a140798e77c",
+            "reference": "014d250daebff39eba15ba990eeb2a140798e77c",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.0"
         },
-        "time": "2017-06-28T15:35:32+00:00",
+        "time": "2018-12-29T15:36:03+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -506,18 +458,70 @@
         ]
     },
     {
+        "name": "psr/http-message",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/http-message.git",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2016-08-06T14:39:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Http\\Message\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for HTTP messages",
+        "homepage": "https://github.com/php-fig/http-message",
+        "keywords": [
+            "http",
+            "http-message",
+            "psr",
+            "psr-7",
+            "request",
+            "response"
+        ]
+    },
+    {
         "name": "text/template",
         "version": "dev-master",
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/dermatthes/text-template.git",
-            "reference": "7331124333616caf72bc9ccd1033e45a1f29a695"
+            "reference": "dcca3038b1c56e8293c881c9be57e7dbcc7d93c8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/dermatthes/text-template/zipball/7331124333616caf72bc9ccd1033e45a1f29a695",
-            "reference": "7331124333616caf72bc9ccd1033e45a1f29a695",
+            "url": "https://api.github.com/repos/dermatthes/text-template/zipball/dcca3038b1c56e8293c881c9be57e7dbcc7d93c8",
+            "reference": "dcca3038b1c56e8293c881c9be57e7dbcc7d93c8",
             "shasum": ""
         },
         "require": {
@@ -529,7 +533,7 @@
             "phpunit/phpcov": "^2.0",
             "satooshi/php-coveralls": "*"
         },
-        "time": "2018-07-25T12:59:58+00:00",
+        "time": "2019-05-29T20:55:36+00:00",
         "type": "library",
         "installation-source": "source",
         "autoload": {

@@ -4,13 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d
+class ComposerStaticInit9a7c8d0ef43910a17ca3bfe711755a7f
 {
     public static $files = array (
-        'a4f5ce6af57b467cb2bf2b085d245b71' => __DIR__ . '/..' . '/phore/html/src/functions.inc.php',
-        'c6318b49cf0c0560fa9240fc82a1f015' => __DIR__ . '/..' . '/phore/micro-app/src/functions.php',
+        '9ea9c643f5d5dab925ae774b54073b9f' => __DIR__ . '/..' . '/phore/core/src/functions.inc.php',
         '33c0fd24d3856a16898d345f028fb588' => __DIR__ . '/..' . '/phore/filesystem/src/functions.php',
+        '6a9810e6379fac4b94daec978d82675d' => __DIR__ . '/..' . '/phore/http-client/src/functions.php',
         'ff5b23d1cb5817d6154ee167207c03e5' => __DIR__ . '/..' . '/phore/system/src/functions.php',
+        'c6318b49cf0c0560fa9240fc82a1f015' => __DIR__ . '/..' . '/phore/micro-app/src/functions.php',
         '0e1f09735ead39dbbf0f6e9169c5095d' => __DIR__ . '/../..' . '/config.php',
     );
 
@@ -21,16 +22,15 @@ class ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d
         ),
         'P' => 
         array (
+            'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
-            'Phore\\Theme\\CoreUI\\' => 19,
-            'Phore\\Theme\\Bootstrap\\' => 22,
             'Phore\\System\\' => 13,
             'Phore\\MicroApp\\' => 15,
-            'Phore\\Html\\' => 11,
+            'Phore\\HttpClient\\' => 17,
             'Phore\\FileSystem\\' => 17,
             'Phore\\Di\\' => 9,
-            'Phore\\Dba\\' => 10,
-            'Phore\\DbaMigrations\\' => 20,
+            'Phore\\Core\\' => 11,
+            'Phore\\CloudTool\\' => 16,
             'Phore\\Cli\\' => 10,
         ),
         'L' => 
@@ -44,17 +44,13 @@ class ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'Phore\\Theme\\CoreUI\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phore/theme-coreui/src',
-        ),
-        'Phore\\Theme\\Bootstrap\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phore/theme-bootstrap/src',
         ),
         'Phore\\System\\' => 
         array (
@@ -64,9 +60,9 @@ class ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d
         array (
             0 => __DIR__ . '/..' . '/phore/micro-app/src',
         ),
-        'Phore\\Html\\' => 
+        'Phore\\HttpClient\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phore/html/src',
+            0 => __DIR__ . '/..' . '/phore/http-client/src',
         ),
         'Phore\\FileSystem\\' => 
         array (
@@ -76,13 +72,13 @@ class ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d
         array (
             0 => __DIR__ . '/..' . '/phore/di-base/src/Di',
         ),
-        'Phore\\Dba\\' => 
+        'Phore\\Core\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phore/dba/src',
+            0 => __DIR__ . '/..' . '/phore/core/src',
         ),
-        'Phore\\DbaMigrations\\' => 
+        'Phore\\CloudTool\\' => 
         array (
-            0 => __DIR__ . '/..' . '/phore/dba-migrations/src',
+            0 => __DIR__ . '/..' . '/phore/cloudtool/src',
         ),
         'Phore\\Cli\\' => 
         array (
@@ -97,8 +93,8 @@ class ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit43dc9611cc68ed8db18197e42fa4fd6d::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9a7c8d0ef43910a17ca3bfe711755a7f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9a7c8d0ef43910a17ca3bfe711755a7f::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

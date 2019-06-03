@@ -6,9 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'a4f5ce6af57b467cb2bf2b085d245b71' => $vendorDir . '/phore/html/src/functions.inc.php',
-    'c6318b49cf0c0560fa9240fc82a1f015' => $vendorDir . '/phore/micro-app/src/functions.php',
+    '9ea9c643f5d5dab925ae774b54073b9f' => $vendorDir . '/phore/core/src/functions.inc.php',
     '33c0fd24d3856a16898d345f028fb588' => $vendorDir . '/phore/filesystem/src/functions.php',
+    '6a9810e6379fac4b94daec978d82675d' => $vendorDir . '/phore/http-client/src/functions.php',
     'ff5b23d1cb5817d6154ee167207c03e5' => $vendorDir . '/phore/system/src/functions.php',
+    'c6318b49cf0c0560fa9240fc82a1f015' => $vendorDir . '/phore/micro-app/src/functions.php',
     '0e1f09735ead39dbbf0f6e9169c5095d' => $baseDir . '/config.php',
 );

@@ -1,2 +1,0 @@
-# cli
-Command line interface

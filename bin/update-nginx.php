@@ -57,6 +57,8 @@ foreach ($vhosts as $index => $vhost) {
 
     $ssl_pem_file = phore_pluck("ssl_cert_id", $vhost, null);
 
+    $vhostConfig["ssl_pem_local_file"] = "";
+
     if ($ssl_pem_file !== null) {
         $ssl_pem_serial = phore_pluck("ssl_cert_serial", $vhost);
         $storeFilename = $certStore->withFileName($ssl_pem_serial . $ssl_pem_file, "pem");

@@ -29,7 +29,7 @@ $app->router->onGet("/v1/cloudfront/config", function () {
 });
 
 $app->router->onGet("/v1/cloudfront/cert/:cert", function (string $cert) {
-    $enc = new PhoreSecretBoxSync(phore_file(CONF_MANAGER_CERT_SECRET)->get_contents());
+    $enc = new PhoreSecretBoxSync(phore_file(CONF_CF_SECRET)->get_contents());
     echo $enc->encrypt(phore_file(__DIR__ . "/democert.pem")->get_contents());
     return true;
 });

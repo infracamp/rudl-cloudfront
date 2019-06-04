@@ -1,5 +1,4 @@
 {
-  "principal_hostname": "http://localhost:8000",
   "vhosts": [
     {
       "domains": [

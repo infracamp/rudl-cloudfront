@@ -24,3 +24,6 @@ command:
 
   dev:
     - "sudo scripts/update.sh"
+
+  interval:
+    - "sudo php -f /opt/bin/update-nginx.php || sleep 60"

@@ -15,15 +15,15 @@ require __DIR__ . "/../vendor/autoload.php";
 
 
 $targetConfig = [
-    "manager_hostname" => CONF_MANAGER_HOSTNAME,
+    "principal_hostname" => CONF_PRINCIPAL_HOSTNAME,
     "vhosts" => []
 ];
 
-$cloudConfig = phore_http_request(CONF_MANAGER_GET_CONFIG_URL)->send()->getBodyJson();
+$cloudConfig = phore_http_request(CONF_PRINCIPAL_GET_CONFIG_URL)->send()->getBodyJson();
 $vhosts = phore_pluck("vhosts", $cloudConfig);
 
 
-$secretBox = new PhoreSecretBoxSync(phore_file(CONF_MANAGER_CERT_SECRET)->get_contents());
+$secretBox = new PhoreSecretBoxSync(phore_file(CONF_CF_SECRET)->get_contents());
 $certStore = phore_dir(CONF_SSL_CERT_STORE)->assertDirectory(true);
 
 foreach ($vhosts as $index => $vhost) {
@@ -55,14 +55,14 @@ foreach ($vhosts as $index => $vhost) {
         ];
     }
 
-    $ssl_pem_file = phore_pluck("ssl_pem_file", $vhost, null);
+    $ssl_pem_file = phore_pluck("ssl_cert_id", $vhost, null);
 
     if ($ssl_pem_file !== null) {
-        $ssl_pem_serial = phore_pluck("ssl_pem_serial", $vhost);
-        $storeFilename = $certStore->withFileName($ssl_pem_serial . $ssl_pem_file);
+        $ssl_pem_serial = phore_pluck("ssl_cert_serial", $vhost);
+        $storeFilename = $certStore->withFileName($ssl_pem_serial . $ssl_pem_file, "pem");
         if (! $storeFilename->exists()) {
             phore_out("Downloading new cert for $ssl_pem_file (Serial: $ssl_pem_serial)...");
-            $ret = phore_http_request(CONF_MANAGER_GET_CERT_URL, ["certId" => $ssl_pem_file])->send()->getBody();
+            $ret = phore_http_request(CONF_PRINCIPAL_GET_CERT_URL, ["certId" => $ssl_pem_file])->send()->getBody();
             $storeFilename->set_contents($secretBox->decrypt($ret));
         }
         $vhostConfig["ssl_pem_local_file"] = $storeFilename->getUri();

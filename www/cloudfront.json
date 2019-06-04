@@ -1,5 +1,5 @@
 {
-  "manager_url": "http://localhost:8000",
+  "principal_hostname": "http://localhost:8000",
   "vhosts": [
     {
       "domains": [
@@ -12,8 +12,8 @@
           "proxy_pass": "http://localhost:4000/"
         }
       ],
-      "ssl_pem_file": "data1.insecure.optools.net.pem",
-      "ssl_pem_serial": "984hskkj"
+      "ssl_cert_id": "data1.insecure.optools.net.pem",
+      "ssl_cert_serial": "984hskkj"
     }
 
   ]

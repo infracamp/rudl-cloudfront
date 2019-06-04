@@ -57,7 +57,7 @@ foreach ($vhosts as $index => $vhost) {
 
     $ssl_pem_file = phore_pluck("ssl_cert_id", $vhost, null);
 
-    $vhostConfig["ssl_pem_local_file"] = null;
+    $vhostConfig["ssl_pem_local_file"] = "";
 
     if ($ssl_pem_file !== null) {
         $ssl_pem_serial = phore_pluck("ssl_cert_serial", $vhost);
@@ -76,8 +76,6 @@ foreach ($vhosts as $index => $vhost) {
 phore_file(CONF_CLOUDFRONT_RUN_CONFIG)->set_contents(phore_json_pretty_print(phore_json_encode($targetConfig)));
 
 $ct = new PhoreCloudTool(__DIR__ . "/../etc/nginx", "/etc/nginx");
-
-print_r ($targetConfig);
 
 $ct->setEnvironment($targetConfig);
 

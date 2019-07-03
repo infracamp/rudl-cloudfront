@@ -107,12 +107,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-core.git",
-                "reference": "9c63fe78c08efb6e413f6ec476ff8d7e48647642"
+                "reference": "4910718171808c5a22489de69cbb830aaad492d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-core/zipball/9c63fe78c08efb6e413f6ec476ff8d7e48647642",
-                "reference": "9c63fe78c08efb6e413f6ec476ff8d7e48647642",
+                "url": "https://api.github.com/repos/phore/phore-core/zipball/4910718171808c5a22489de69cbb830aaad492d9",
+                "reference": "4910718171808c5a22489de69cbb830aaad492d9",
                 "shasum": ""
             },
             "require": {
@@ -150,7 +150,7 @@
             ],
             "description": "Phore core library",
             "homepage": "https://infracamp.org/phore/",
-            "time": "2019-06-04T20:26:41+00:00"
+            "time": "2019-06-27T11:10:49+00:00"
         },
         {
             "name": "phore/di-base",
@@ -209,12 +209,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-filesystem.git",
-                "reference": "986e255f774262fd9f5a2df0224b439e75eea7a4"
+                "reference": "1bc8c284ecea3a933af4079117e2def86484e9ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/986e255f774262fd9f5a2df0224b439e75eea7a4",
-                "reference": "986e255f774262fd9f5a2df0224b439e75eea7a4",
+                "url": "https://api.github.com/repos/phore/phore-filesystem/zipball/1bc8c284ecea3a933af4079117e2def86484e9ec",
+                "reference": "1bc8c284ecea3a933af4079117e2def86484e9ec",
                 "shasum": ""
             },
             "require": {
@@ -247,7 +247,7 @@
                 }
             ],
             "description": "Acces files layer",
-            "time": "2019-05-31T12:14:05+00:00"
+            "time": "2019-06-27T11:11:13+00:00"
         },
         {
             "name": "phore/http-client",
@@ -255,12 +255,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-http-client.git",
-                "reference": "86e5f1c3c945a4ae5836afb15192e471aa11bfce"
+                "reference": "82f886c81690c484d18c436b8cc4b04718e8890c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-http-client/zipball/86e5f1c3c945a4ae5836afb15192e471aa11bfce",
-                "reference": "86e5f1c3c945a4ae5836afb15192e471aa11bfce",
+                "url": "https://api.github.com/repos/phore/phore-http-client/zipball/82f886c81690c484d18c436b8cc4b04718e8890c",
+                "reference": "82f886c81690c484d18c436b8cc4b04718e8890c",
                 "shasum": ""
             },
             "require": {
@@ -303,7 +303,7 @@
                 "Keyword1",
                 "Keyword2"
             ],
-            "time": "2019-05-24T20:41:44+00:00"
+            "time": "2019-06-24T14:28:02+00:00"
         },
         {
             "name": "phore/micro-app",
@@ -311,12 +311,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phore/phore-micro-app.git",
-                "reference": "855ca604ea90f4724819b2dffbee55c78ed200fa"
+                "reference": "42bf4d3ae28294c9d8ee04c256ffd6e7061c2746"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/855ca604ea90f4724819b2dffbee55c78ed200fa",
-                "reference": "855ca604ea90f4724819b2dffbee55c78ed200fa",
+                "url": "https://api.github.com/repos/phore/phore-micro-app/zipball/42bf4d3ae28294c9d8ee04c256ffd6e7061c2746",
+                "reference": "42bf4d3ae28294c9d8ee04c256ffd6e7061c2746",
                 "shasum": ""
             },
             "require": {
@@ -352,7 +352,7 @@
             ],
             "description": "Micro framework for rest api webservices",
             "homepage": "https://infracamp.org/phore/",
-            "time": "2019-05-29T17:16:47+00:00"
+            "time": "2019-07-03T12:31:21+00:00"
         },
         {
             "name": "phore/system",
@@ -502,12 +502,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/dermatthes/text-template.git",
-                "reference": "dcca3038b1c56e8293c881c9be57e7dbcc7d93c8"
+                "reference": "046661b9685c173601de72ef7f999e7d82261726"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dermatthes/text-template/zipball/dcca3038b1c56e8293c881c9be57e7dbcc7d93c8",
-                "reference": "dcca3038b1c56e8293c881c9be57e7dbcc7d93c8",
+                "url": "https://api.github.com/repos/dermatthes/text-template/zipball/046661b9685c173601de72ef7f999e7d82261726",
+                "reference": "046661b9685c173601de72ef7f999e7d82261726",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +549,7 @@
                 "text",
                 "twig"
             ],
-            "time": "2019-05-29T20:55:36+00:00"
+            "time": "2019-06-30T22:09:54+00:00"
         }
     ],
     "packages-dev": [],

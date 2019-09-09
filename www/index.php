@@ -23,8 +23,6 @@ $app->acl->addRule(aclRule("*")->ALLOW());
 
 
 $app->router->onGet("/v1/cloudfront/config", function () {
-
-
     return phore_file(__DIR__ . "/cloudfront.json")->get_json();
 });
 

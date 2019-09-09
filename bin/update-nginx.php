@@ -16,6 +16,8 @@ require __DIR__ . "/../vendor/autoload.php";
 
 $targetConfig = [
     "principal_hostname" => CONF_PRINCIPAL_HOSTNAME,
+    "conf_nginx_error_log" => CONF_NGINX_ERROR_LOG,
+    "conf_nginx_access_log" => CONF_NGINX_ACCESS_LOG,
     "vhosts" => []
 ];
 

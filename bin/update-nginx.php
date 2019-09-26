@@ -88,13 +88,25 @@ $ct->parseRecursive();
 
 if ($ct->isFileModified()) {
     phore_out("nginx config changed - reloading server");
-    phore_exec("service nginx reload");
+    try {
+        phore_exec("service nginx reload");
+    } catch (\Exception $e) {
+        phore_out("reload failed: " . $e->getMessage());
+        passthru("nginx -t");
+    }
 }
 
 try {
     phore_http_request("http://localhost")->send(false);
 } catch (\Exception $ex) {
     phore_out("Nginx not running - restarting");
-    phore_exec("service nginx restart");
+    try {
+        phore_exec("service nginx restart");
+    } catch (\Exception $e) {
+        phore_out("Cant restart nginx: " . $e->getMessage());
+        passthru("nginx -t");
+        sleep(10);
+    }
+
 }
 

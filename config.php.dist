@@ -14,16 +14,19 @@ if (DEV_MODE === true) {
 
     define ("CONF_PRINCIPAL_SERVICE", "%CONF_PRINCIPAL_SERVICE%");
 }
-define ("CONF_CLUSTER_HOSTNAME", "%CONF_CLUSTER_HOSTNAME%");
 
 
 define ("CONF_SSL_CERT_STORE", "/mnt/ssl");
 define ("CONF_CLOUDFRONT_RUN_CONFIG", "/mnt/cloudfront-run.json");
 
 
-
 define ("CONF_PRINCIPAL_GET_CONFIG_URL", "http://" . CONF_PRINCIPAL_SERVICE . "/v1/cloudfront/config");
 define ("CONF_PRINCIPAL_GET_CERT_URL", "http://" . CONF_PRINCIPAL_SERVICE . "/v1/cloudfront/cert/{certId}");
+
+define("CONF_NGINX_ERROR_LOG", "%CONF_NGINX_ERROR_LOG%");
+define("CONF_NGINX_ACCESS_LOG", "%CONF_NGINX_ACCESS_LOG%");
+
+
 
 define("CONF_CF_SECRET", "/run/secrets/rudl_cf_secret");
 

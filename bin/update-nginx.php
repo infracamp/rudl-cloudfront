@@ -11,6 +11,7 @@ namespace App;
 use Phore\CloudTool\PhoreCloudTool;
 use Phore\Core\Helper\PhoreSecretBoxSync;
 use Phore\HttpClient\Ex\PhoreHttpRequestException;
+use Psr\Log\LogLevel;
 
 require __DIR__ . "/../vendor/autoload.php";
 
@@ -80,6 +81,8 @@ foreach ($vhosts as $index => $vhost) {
 
 phore_file(CONF_CLOUDFRONT_RUN_CONFIG)->set_contents(phore_json_pretty_print(phore_json_encode($targetConfig)));
 
+
+phore_log()->setLogLevel(LogLevel::ERROR);
 $ct = new PhoreCloudTool(__DIR__ . "/../etc/nginx", "/etc/nginx", phore_log());
 
 $ct->setEnvironment($targetConfig);
@@ -87,11 +90,11 @@ $ct->setEnvironment($targetConfig);
 $ct->parseRecursive();
 
 if ($ct->isFileModified()) {
-    phore_out("nginx config changed - reloading server");
+    phore_log()->notice("nginx config changed - reloading server");
     try {
         phore_exec("service nginx reload");
     } catch (\Exception $e) {
-        phore_out("reload failed: " . $e->getMessage());
+        phore_log()->error("reload failed: " . $e->getMessage());
         passthru("nginx -t");
     }
 }
@@ -99,11 +102,11 @@ if ($ct->isFileModified()) {
 try {
     phore_http_request("http://localhost")->send(false);
 } catch (\Exception $ex) {
-    phore_out("Nginx not running - restarting");
+    phore_log()->notice("Nginx not running - restarting");
     try {
         phore_exec("service nginx restart");
     } catch (\Exception $e) {
-        phore_out("Cant restart nginx: " . $e->getMessage());
+        phore_log()->emergency("Cant restart nginx: " . $e->getMessage());
         passthru("nginx -t");
         sleep(10);
     }

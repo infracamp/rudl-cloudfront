@@ -10,14 +10,16 @@ namespace App;
 
 use Phore\CloudTool\PhoreCloudTool;
 use Phore\Core\Helper\PhoreSecretBoxSync;
+use Phore\HttpClient\Ex\PhoreHttpRequestException;
 
 require __DIR__ . "/../vendor/autoload.php";
 
 
 $targetConfig = [
-    "principal_hostname" => CONF_PRINCIPAL_HOSTNAME,
+    "principal_hostname" => CONF_PRINCIPAL_SERVICE,
     "vhosts" => []
 ];
+
 
 $cloudConfig = phore_http_request(CONF_PRINCIPAL_GET_CONFIG_URL)->send()->getBodyJson();
 $vhosts = phore_pluck("vhosts", $cloudConfig);
@@ -75,7 +77,7 @@ foreach ($vhosts as $index => $vhost) {
 
 phore_file(CONF_CLOUDFRONT_RUN_CONFIG)->set_contents(phore_json_pretty_print(phore_json_encode($targetConfig)));
 
-$ct = new PhoreCloudTool(__DIR__ . "/../etc/nginx", "/etc/nginx");
+$ct = new PhoreCloudTool(__DIR__ . "/../etc/nginx", "/etc/nginx", phore_log());
 
 $ct->setEnvironment($targetConfig);
 

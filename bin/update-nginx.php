@@ -15,7 +15,7 @@ use Psr\Log\LogLevel;
 
 require __DIR__ . "/../vendor/autoload.php";
 
-phore_log()->setLogLevel(LogLevel::WARNING);
+phore_log()->setLogLevel(LogLevel::NOTICE);
 function warnMsgDelayed($message) {
     if (time() % 60 !== 1)
         return;
@@ -109,7 +109,7 @@ foreach ($vhosts as $index => $vhost) {
         $ssl_pem_serial = phore_pluck("ssl_cert_serial", $vhost);
         $storeFilename = $certStore->withFileName($ssl_pem_serial . $ssl_pem_file, "pem");
         if (! $storeFilename->exists()) {
-            phore_log()->warning("Downloading new cert for $ssl_pem_file (Serial: $ssl_pem_serial)...");
+            phore_log()->notice("Downloading new cert for $ssl_pem_file (Serial: $ssl_pem_serial)...");
             $ret = phore_http_request(CONF_PRINCIPAL_GET_CERT_URL . "?ptoken={$principalToken}", ["certId" => $ssl_pem_file])->send()->getBody();
             $storeFilename->set_contents($secretBox->decrypt($ret));
         }
@@ -130,7 +130,7 @@ $ct->setEnvironment($targetConfig);
 $ct->parseRecursive();
 
 if ($ct->isFileModified()) {
-    phore_log()->warning("nginx config changed - reloading server");
+    phore_log()->notice("nginx config changed - reloading server");
     try {
         phore_exec("service nginx reload");
     } catch (\Exception $e) {
@@ -140,7 +140,7 @@ if ($ct->isFileModified()) {
 }
 
 try {
-    phore_http_request("http://localhost/rudl-cf-selftest")->send(false);
+    phore_http_request("http://localhost/rudl-cf-selftest")->send();
 } catch (\Exception $ex) {
     phore_log()->warning("Nginx not running - restarting");
     try {

@@ -27,5 +27,12 @@ class CloudFrontTest extends TestCase
         $this->assertEquals(200, phore_http_request("http://localhost/rudl-cf-selftest")->send(false)->getHttpStatus());
     }
 
+    public function testServiceReturns404OnMissingService()
+    {
+        $resp = phore_http_request("http://localhost/")->withHeaders(["Host"=>"missing-service.xy"])
+            ->send(false);
+        echo $resp->getBody();
+        $this->assertEquals(404, $resp->getHttpStatus());
+    }
 
 }

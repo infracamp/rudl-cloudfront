@@ -25,6 +25,17 @@
           "proxy_pass": "http://localhost:4000/"
         }
       ]
+    },
+    {
+      "domains": [
+        "missing-service.xy"
+      ],
+      "locations": [
+        {
+          "location": "/",
+          "proxy_pass": "http://missing_service/"
+        }
+      ]
     }
 
   ]

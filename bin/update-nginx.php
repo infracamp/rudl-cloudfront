@@ -87,7 +87,7 @@ foreach ($vhosts as $index => $vhost) {
         $proxy_pass_ip = convertUrlToHostAddr($proxy_pass);
 
         if ($proxy_pass_ip === null) {
-            warnMsgDelayed("Cannot resolve upstream proxy_pass '$proxy_pass'. Skipping vhost."),
+            warnMsgDelayed("Cannot resolve upstream proxy_pass '$proxy_pass'. Skipping vhost.");
             continue;
         }
 

@@ -118,7 +118,7 @@ if ($ct->isFileModified()) {
 }
 
 try {
-    phore_http_request("http://localhost")->send(false);
+    phore_http_request("http://localhost/rudl-cf-selftest")->send(false);
 } catch (\Exception $ex) {
     phore_log()->notice("Nginx not running - restarting");
     try {

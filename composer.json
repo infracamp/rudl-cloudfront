@@ -24,5 +24,8 @@
     "phore/cloudtool": "dev-master",
     "phore/http-client": "dev-master"
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "require-dev": {
+    "phpunit/phpunit": "^8.4@dev"
+  }
 }

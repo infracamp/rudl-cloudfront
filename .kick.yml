@@ -20,3 +20,6 @@ command:
   dev:
     - "sudo scripts/update.sh"
 
+  test:
+    - "sudo scripts/update.sh"
+    - phpunit

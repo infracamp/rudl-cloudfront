@@ -54,15 +54,19 @@ function convertUrlToHostAddr(string $input) : ?string
     return "http://{$addr}:{$cport}{$cpath}";
 }
 
+$cloudFrontSecret = phore_file(CONF_CF_SECRET)->get_contents();
+if (strlen($cloudFrontSecret) < 32)
+    throw new \Exception("Cloudfront secret must be at least 32 characters.");
+$principalToken = substr($cloudFrontSecret,0, 8);
 
-$cloudConfig = phore_http_request(CONF_PRINCIPAL_GET_CONFIG_URL)->send()->getBodyJson();
+$cloudConfig = phore_http_request(CONF_PRINCIPAL_GET_CONFIG_URL . "?ptoken={$principalToken}")->send()->getBodyJson();
 $vhosts = phore_pluck("vhosts", $cloudConfig);
 
 
 
 
 
-$secretBox = new PhoreSecretBoxSync(phore_file(CONF_CF_SECRET)->get_contents());
+$secretBox = new PhoreSecretBoxSync($cloudFrontSecret);
 $certStore = phore_dir(CONF_SSL_CERT_STORE)->assertDirectory(true);
 
 foreach ($vhosts as $index => $vhost) {
@@ -106,7 +110,7 @@ foreach ($vhosts as $index => $vhost) {
         $storeFilename = $certStore->withFileName($ssl_pem_serial . $ssl_pem_file, "pem");
         if (! $storeFilename->exists()) {
             phore_log()->warning("Downloading new cert for $ssl_pem_file (Serial: $ssl_pem_serial)...");
-            $ret = phore_http_request(CONF_PRINCIPAL_GET_CERT_URL, ["certId" => $ssl_pem_file])->send()->getBody();
+            $ret = phore_http_request(CONF_PRINCIPAL_GET_CERT_URL . "?ptoken={$principalToken}", ["certId" => $ssl_pem_file])->send()->getBody();
             $storeFilename->set_contents($secretBox->decrypt($ret));
         }
         $vhostConfig["ssl_pem_local_file"] = $storeFilename->getUri();

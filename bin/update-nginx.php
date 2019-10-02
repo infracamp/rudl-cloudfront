@@ -15,6 +15,12 @@ use Psr\Log\LogLevel;
 
 require __DIR__ . "/../vendor/autoload.php";
 
+phore_log()->setLogLevel(LogLevel::WARNING);
+function warnMsgDelayed($message) {
+    if (time() % 60 !== 1)
+        return;
+    phore_log()->warning("Delayed message: " . $message);
+}
 
 $targetConfig = [
 
@@ -24,6 +30,10 @@ $targetConfig = [
     "conf_nginx_access_log" => CONF_NGINX_ACCESS_LOG,
     "vhosts" => []
 ];
+
+if ($targetConfig["principal_service_ip"] === false) {
+    warnMsgDelayed("Cannot resolve CONF_PRINCIPAL_SERVICE: '" . CONF_PRINCIPAL_SERVICE . "' - Skipping SSL registration.");
+}
 
 
 function convertUrlToHostAddr(string $input) : ?string
@@ -49,6 +59,9 @@ $cloudConfig = phore_http_request(CONF_PRINCIPAL_GET_CONFIG_URL)->send()->getBod
 $vhosts = phore_pluck("vhosts", $cloudConfig);
 
 
+
+
+
 $secretBox = new PhoreSecretBoxSync(phore_file(CONF_CF_SECRET)->get_contents());
 $certStore = phore_dir(CONF_SSL_CERT_STORE)->assertDirectory(true);
 
@@ -65,13 +78,18 @@ foreach ($vhosts as $index => $vhost) {
         $location = phore_pluck("location", $curLocation);
 
         if (in_array($location, $usedLocations)) {
-            phore_out("Skipping duplicate location: $location");
+            warnMsgDelayed("Skipping duplicate location: $location");
             continue;
         }
 
         $proxy_pass = phore_pluck("proxy_pass", $curLocation);
 
         $proxy_pass_ip = convertUrlToHostAddr($proxy_pass);
+
+        if ($proxy_pass_ip === null) {
+            warnMsgDelayed("Cannot resolve upstream proxy_pass '$proxy_pass'. Skipping vhost."),
+            continue;
+        }
 
         $vhostConfig["locations"][] = [
             "location" => $location,
@@ -87,7 +105,7 @@ foreach ($vhosts as $index => $vhost) {
         $ssl_pem_serial = phore_pluck("ssl_cert_serial", $vhost);
         $storeFilename = $certStore->withFileName($ssl_pem_serial . $ssl_pem_file, "pem");
         if (! $storeFilename->exists()) {
-            phore_out("Downloading new cert for $ssl_pem_file (Serial: $ssl_pem_serial)...");
+            phore_log()->warning("Downloading new cert for $ssl_pem_file (Serial: $ssl_pem_serial)...");
             $ret = phore_http_request(CONF_PRINCIPAL_GET_CERT_URL, ["certId" => $ssl_pem_file])->send()->getBody();
             $storeFilename->set_contents($secretBox->decrypt($ret));
         }
@@ -100,7 +118,7 @@ foreach ($vhosts as $index => $vhost) {
 phore_file(CONF_CLOUDFRONT_RUN_CONFIG)->set_contents(phore_json_pretty_print(phore_json_encode($targetConfig)));
 
 
-phore_log()->setLogLevel(LogLevel::ERROR);
+
 $ct = new PhoreCloudTool(__DIR__ . "/../etc/nginx", "/etc/nginx", phore_log());
 
 $ct->setEnvironment($targetConfig);
@@ -108,7 +126,7 @@ $ct->setEnvironment($targetConfig);
 $ct->parseRecursive();
 
 if ($ct->isFileModified()) {
-    phore_log()->notice("nginx config changed - reloading server");
+    phore_log()->warning("nginx config changed - reloading server");
     try {
         phore_exec("service nginx reload");
     } catch (\Exception $e) {
@@ -120,7 +138,7 @@ if ($ct->isFileModified()) {
 try {
     phore_http_request("http://localhost/rudl-cf-selftest")->send(false);
 } catch (\Exception $ex) {
-    phore_log()->notice("Nginx not running - restarting");
+    phore_log()->warning("Nginx not running - restarting");
     try {
         phore_exec("service nginx restart");
     } catch (\Exception $e) {

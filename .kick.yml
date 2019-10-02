@@ -14,10 +14,9 @@ command:
     - "composer update"
 
   run:
-    - "sudo scripts/update.sh"
+  - "sudo scripts/update.sh"
+  - "sudo /opt/bin/update-daemon-nginx.sh"
 
   dev:
     - "sudo scripts/update.sh"
 
-  interval:
-    - "sudo /opt/bin/update-daemon-nginx.sh"

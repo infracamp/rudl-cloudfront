@@ -19,10 +19,30 @@ require __DIR__ . "/../vendor/autoload.php";
 $targetConfig = [
 
     "principal_hostname" => CONF_PRINCIPAL_SERVICE,
+    "principal_service_ip" => filter_var(gethostbyname(CONF_PRINCIPAL_SERVICE), FILTER_VALIDATE_IP),
     "conf_nginx_error_log" => CONF_NGINX_ERROR_LOG,
     "conf_nginx_access_log" => CONF_NGINX_ACCESS_LOG,
     "vhosts" => []
 ];
+
+
+function convertUrlToHostAddr(string $input) : ?string
+{
+    $chost = parse_url($input, PHP_URL_HOST);
+    $cpath = parse_url($input, PHP_URL_PATH);
+    if ($cpath == false)
+        $cpath = "";
+    $cport = parse_url($input, PHP_URL_PORT);
+    if ($cport == false)
+        $cport = "80";
+
+    if ($chost === false)
+        return null;
+    $addr = gethostbyname($chost);
+    if ( ! filter_var($addr, FILTER_VALIDATE_IP))
+        return null;
+    return "http://{$addr}:{$cport}{$cpath}";
+}
 
 
 $cloudConfig = phore_http_request(CONF_PRINCIPAL_GET_CONFIG_URL)->send()->getBodyJson();
@@ -50,14 +70,12 @@ foreach ($vhosts as $index => $vhost) {
         }
 
         $proxy_pass = phore_pluck("proxy_pass", $curLocation);
-        try {
-            phore_http_request($proxy_pass)->send(false);
-        } catch (\Exception $e) {
-            continue;
-        }
+
+        $proxy_pass_ip = convertUrlToHostAddr($proxy_pass);
+
         $vhostConfig["locations"][] = [
             "location" => $location,
-            "proxy_pass" => $proxy_pass
+            "proxy_pass" => $proxy_pass_ip
         ];
     }
 

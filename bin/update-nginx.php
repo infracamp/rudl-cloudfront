@@ -17,7 +17,7 @@ require __DIR__ . "/../vendor/autoload.php";
 
 phore_log()->setLogLevel(LogLevel::NOTICE);
 function warnMsgDelayed($message) {
-    if (time() % 60 !== 1)
+    if (time() % 60 == 1)
         return;
     phore_log()->warning("Delayed message: " . $message);
 }

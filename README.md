@@ -8,6 +8,7 @@
 |------|---------|
 | `CONF_NGINX_ERROR_LOG` | |
 | `CONF_NGINX_ACCESS_LOG` | |
+| `CONF_CLUSTER_NAME` | |
 
 
 ## Logging to Syslog

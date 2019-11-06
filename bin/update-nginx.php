@@ -23,7 +23,8 @@ function warnMsgDelayed($message) {
 }
 
 $targetConfig = [
-
+    "cluster" => CONF_CLUSTER_NAME,
+    "service" => "rudl-cloudfront",
     "principal_hostname" => CONF_PRINCIPAL_SERVICE,
     "principal_service_ip" => filter_var(gethostbyname(CONF_PRINCIPAL_SERVICE), FILTER_VALIDATE_IP),
     "conf_nginx_error_log" => CONF_NGINX_ERROR_LOG,

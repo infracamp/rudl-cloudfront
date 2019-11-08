@@ -93,7 +93,6 @@ foreach ($vhosts as $index => $vhost) {
         }
 
         $proxy_pass = phore_pluck("proxy_pass", $curLocation);
-
         $proxy_pass_ip = convertUrlToHostAddr($proxy_pass);
 
         if ($proxy_pass_ip === null) {

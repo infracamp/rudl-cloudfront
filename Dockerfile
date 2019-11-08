@@ -7,6 +7,8 @@ ENV CONF_NGINX_ERROR_LOG="/var/log/nginx/error.log"
 ENV CONF_NGINX_ACCESS_LOG="/var/log/nginx/access.log main"
 
 ENV CONF_CLUSTER_NAME="unnamed"
+ENV CONF_METRICS_HOST=""
+
 
 ADD / /opt
 RUN ["bash", "-c",  "chown -R user /opt"]

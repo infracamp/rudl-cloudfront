@@ -32,6 +32,11 @@ $targetConfig = [
     "vhosts" => []
 ];
 
+if (CONF_METRICS_HOST != "") {
+    $targetConfig["conf_nginx_access_log"] = "syslog:server=[" . CONF_METRICS_HOST . "]:4200,facility=local7,tag=rudlcf,severity=info json_combined";
+
+}
+
 if ($targetConfig["principal_service_ip"] === false) {
     warnMsgDelayed("Cannot resolve CONF_PRINCIPAL_SERVICE: '" . CONF_PRINCIPAL_SERVICE . "' - Skipping SSL registration.");
 }

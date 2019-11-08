@@ -27,6 +27,8 @@ define("CONF_NGINX_ERROR_LOG", "%CONF_NGINX_ERROR_LOG%");
 define("CONF_NGINX_ACCESS_LOG", "%CONF_NGINX_ACCESS_LOG%");
 
 define("CONF_CLUSTER_NAME", "%CONF_CLUSTER_NAME%");
+define("CONF_METRICS_HOST", "%CONF_METRICS_HOST%");
+
 
 define("CONF_CF_SECRET", "/run/secrets/rudl_cf_secret");
 

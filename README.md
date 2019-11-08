@@ -8,17 +8,21 @@
 |------|---------|
 | `CONF_NGINX_ERROR_LOG` | |
 | `CONF_NGINX_ACCESS_LOG` | |
-| `CONF_CLUSTER_NAME` | |
-| `CONF_METRICS_HOST` | |
+| `CONF_CLUSTER_NAME` | [string] |
+| `CONF_METRICS_HOST` | [hostname or ip] |
 
 
 ## Logging to Syslog
+
+> If you run rudl-metrics you can just add the environment-variable `CONF_METRICS_HOST=metrics.hostname.com` 
+> (on Port 4200). 
 
 Set environment variables to
 
 ```
 syslog:server=[2001:db8::1]:1234,facility=local7,tag=rudlcf,severity=info json_combined
 ```
+
 
 
 

@@ -33,7 +33,7 @@ $targetConfig = [
 ];
 
 if (CONF_METRICS_HOST != "") {
-    $targetConfig["conf_nginx_access_log"] = "syslog:server=[" . CONF_METRICS_HOST . "]:4200,facility=local7,tag=rudlcf,severity=info json_combined";
+    $targetConfig["conf_nginx_access_log"] = "syslog:server=" . CONF_METRICS_HOST . ",facility=local7,tag=rudlcf,severity=info json_combined";
 
 }
 

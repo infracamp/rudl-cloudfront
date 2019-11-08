@@ -50,7 +50,7 @@ foreach ($vhosts as $index => $vhost) {
 
         $proxy_pass = phore_pluck("proxy_pass", $curLocation);
         try {
-            phore_http_request($proxy_pass)->send(false);
+            phore_http_request($proxy_pass . "?rudl-cf-servicecheck")->send(false);
         } catch (\Exception $e) {
             continue;
         }

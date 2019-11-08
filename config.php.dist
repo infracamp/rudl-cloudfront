@@ -26,7 +26,7 @@ define ("CONF_PRINCIPAL_GET_CERT_URL", "http://" . CONF_PRINCIPAL_SERVICE . "/v1
 define("CONF_NGINX_ERROR_LOG", "%CONF_NGINX_ERROR_LOG%");
 define("CONF_NGINX_ACCESS_LOG", "%CONF_NGINX_ACCESS_LOG%");
 
-
+define("CONF_CLUSTER_NAME", "%CONF_CLUSTER_NAME%");
 
 define("CONF_CF_SECRET", "/run/secrets/rudl_cf_secret");
 

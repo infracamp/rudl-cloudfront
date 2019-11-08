@@ -4,8 +4,9 @@ ENV DEV_CONTAINER_NAME="rudl-cloudfront"
 
 ENV CONF_PRINCIPAL_SERVICE="rudl-principal"
 ENV CONF_NGINX_ERROR_LOG="/var/log/nginx/error.log"
-ENV CONF_NGINX_ACCESS_LOG="/var/log/nginx/access.log"
+ENV CONF_NGINX_ACCESS_LOG="/var/log/nginx/access.log main"
 
+ENV CONF_CLUSTER_NAME="unnamed"
 
 ADD / /opt
 RUN ["bash", "-c",  "chown -R user /opt"]

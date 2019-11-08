@@ -1,5 +1,5 @@
 version: 1
-from: "infracamp/kickstart-flavor-gaia"
+from: "infracamp/kickstart-flavor-gaia:latest"
 
 apache_fallback_resource: "/index.php"
 http_port: 4000
@@ -14,10 +14,12 @@ command:
     - "composer update"
 
   run:
-    - "sudo scripts/update.sh"
+  - "sudo scripts/update.sh"
+  - "sudo /opt/bin/update-daemon-nginx.sh"
 
   dev:
     - "sudo scripts/update.sh"
 
-  interval:
-    - "sudo /opt/bin/update-daemon-nginx.sh"
+  test:
+    - "sudo scripts/update.sh"
+    - phpunit

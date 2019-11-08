@@ -88,17 +88,10 @@ foreach ($vhosts as $index => $vhost) {
         }
 
         $proxy_pass = phore_pluck("proxy_pass", $curLocation);
-
-        try {
-            phore_http_request($proxy_pass . "?rudl-cf-servicecheck")->send(false);
-        } catch (\Exception $e) {
-
-
         $proxy_pass_ip = convertUrlToHostAddr($proxy_pass);
 
         if ($proxy_pass_ip === null) {
             warnMsgDelayed("Cannot resolve upstream proxy_pass '$proxy_pass'. Skipping vhost.");
-
             continue;
         }
 

@@ -9,13 +9,13 @@
 | `CONF_NGINX_ERROR_LOG` | |
 | `CONF_NGINX_ACCESS_LOG` | |
 | `CONF_CLUSTER_NAME` | [string] |
-| `CONF_METRICS_HOST` | [hostname or ip] |
+| `CONF_METRICS_HOST` | [hostname:port or ip:port] |
 
 
 ## Logging to Syslog
 
-> If you run rudl-metrics you can just add the environment-variable `CONF_METRICS_HOST=metrics.hostname.com` 
-> (on Port 4200). 
+> If you run rudl-metrics you can just add the environment-variable `CONF_METRICS_HOST=metrics.hostname.com:4200` 
+> (for syslog udp port 4200). 
 
 Set environment variables to
 

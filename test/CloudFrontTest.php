@@ -35,4 +35,13 @@ class CloudFrontTest extends TestCase
         $this->assertEquals(404, $resp->getHttpStatus());
     }
 
+
+    public function testServiceReturns401OnAccessDenied()
+    {
+        $resp = phore_http_request("http://localhost/")->withHeaders(["Host"=>"service-with-allow_ips.xy"])
+            ->send(false);
+        echo $resp->getBody();
+        $this->assertEquals(403, $resp->getHttpStatus());
+    }
+
 }

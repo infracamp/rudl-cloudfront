@@ -11,5 +11,5 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Run a one-line script
-      run: cd test/01-devmode && ./kickstart.sh :test
+      run: ./kickstart.sh :test
  

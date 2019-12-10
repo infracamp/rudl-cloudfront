@@ -100,8 +100,13 @@ foreach ($vhosts as $index => $vhost) {
             continue;
         }
 
+        $allowIps = phore_pluck("allow_ips", $curLocation, null);
+        if ( ! is_array($allowIps) && $allowIps !== null)
+            $allowIps = [];
+
         $vhostConfig["locations"][] = [
             "location" => $location,
+            "allow_ips" => $allowIps,
             "proxy_pass" => $proxy_pass_ip
         ];
     }
@@ -123,6 +128,7 @@ foreach ($vhosts as $index => $vhost) {
     $targetConfig["vhosts"][] = $vhostConfig;
 
 }
+
 
 phore_file(CONF_CLOUDFRONT_RUN_CONFIG)->set_contents(phore_json_pretty_print(phore_json_encode($targetConfig)));
 

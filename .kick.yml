@@ -18,7 +18,7 @@ command:
   - "sudo /opt/bin/update-daemon-nginx.sh"
 
   dev:
-    - "sudo scripts/update.sh"
+#    - "sudo scripts/update.sh"
 
   test:
     - "sudo scripts/update.sh"

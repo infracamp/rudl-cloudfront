@@ -21,6 +21,6 @@ command:
 #    - "sudo scripts/update.sh"
 
   test:
-    - "echo 'testsecret012345678901234567890123456789' > /run/secrets/rudl_cf_secret"
+    - "sudo scripts/create_test_secret.sh"
     - "sudo scripts/update.sh"
     - phpunit
